@@ -16,11 +16,16 @@ public class VHelpfulCodeThanksMrLin {
         //char data type - a single character
         char c = letter.toLowerCase().charAt(0);
 
-        //calculate ASCII offset of var c from lowercase 'a'
+        //calculate ASCII offset of letter held by c from lowercase 'a'
         return c - 'a';
     }
 
     public static void main(String[] args) {
+
+        //print letters
+        for (int i = 0; i < 26; i++)
+            System.out.print((char)('A' + i) + " ");
+        System.out.println();
 
         System.out.println("enter a number");
         int input = intInput();
@@ -28,8 +33,8 @@ public class VHelpfulCodeThanksMrLin {
 
         System.out.println("enter a letter");
         String let = s.nextLine();
-        int coord = stringToInt(let);
-        System.out.println(let + " was converted to " + coord);
+        int num = stringToInt(let);
+        System.out.println(let + " was converted to " + num);
 
     }
 
