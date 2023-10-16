@@ -41,6 +41,24 @@ public class YelpAPIDemo {
 
             //isolate total
             System.out.println(responseObject.get("total"));
+            //total holds an int
+
+            System.out.println(responseObject.get("region"));
+            //region is an object - curly braces in output
+            //need to cast as object to isolate components of region
+            JSONObject region = responseObject.getJSONObject("region");
+            System.out.println(region.get("center"));
+            System.out.println(region.getJSONObject("center").get("latitude"));
+
+            System.out.println(responseObject.get("businesses"));
+            //businesses is an array - square brackets
+            JSONArray bArray = responseObject.getJSONArray("businesses");
+            System.out.println("length of bArray: " + bArray.length());
+
+            System.out.println(bArray.get(0));
+
+            JSONObject business = (JSONObject) bArray.get(0);
+            System.out.println(business.get("name"));
 
         }
         catch(Exception e) {
