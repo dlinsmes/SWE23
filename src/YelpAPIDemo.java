@@ -10,7 +10,7 @@ public class YelpAPIDemo {
 
             HttpClient client = HttpClient.newHttpClient();
 
-            String API_KEY = "TsghMGkJt7cGjWSDIhlaEyR93TIQwBL13ORyp_8yLJ80muvvgD10_jDwGxJzhya8vs60Qt0_lXllh8SaMn2T6L0jsTxPQI1_9u4cKnnBl_scK8qvrBn4RR6WMBM7Y3Yx";
+            String API_KEY = "";
 
             String term = "taco";
             String location = "Irvine"; //%20 instead of spaces
@@ -33,6 +33,14 @@ public class YelpAPIDemo {
 
             System.out.println(response);
             System.out.println(response.body());
+
+            JSONObject responseObject = new JSONObject(response.body());
+            System.out.println(responseObject);
+
+            System.out.println(responseObject.keySet());
+
+            //isolate total
+            System.out.println(responseObject.get("total"));
 
         }
         catch(Exception e) {
