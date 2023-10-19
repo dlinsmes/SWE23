@@ -71,7 +71,13 @@ public class YelpAPIDemo {
             //use get(Type) for specific type - get() returns Object
             String n = business.getString("name");
 
-            double rating = business.getDouble("rating");
+            //some businesses won't have key/value pairs for all fields
+            double rating = -1;
+
+            //check if object has this key
+            if (business.has("rating")) {
+                rating = business.getDouble("rating");
+            }
 
 
             //make a YelpRestaurant class that has variables for:
