@@ -55,10 +55,37 @@ public class YelpAPIDemo {
             JSONArray bArray = responseObject.getJSONArray("businesses");
             System.out.println("length of bArray: " + bArray.length());
 
+            //for each loop - bArray type is Object
+            //-need to cast to JSONObject
+            for (Object o: bArray) {
+                JSONObject j = (JSONObject) o;
+                System.out.println(j.getString("name"));
+            }
+
             System.out.println(bArray.get(0));
 
             JSONObject business = (JSONObject) bArray.get(0);
             System.out.println(business.get("name"));
+            //
+
+            //use get(Type) for specific type - get() returns Object
+            String n = business.getString("name");
+
+            double rating = business.getDouble("rating");
+
+
+            //make a YelpRestaurant class that has variables for:
+            //-name
+            //-street address
+            //-city
+            //-rating (double)
+            //-price range (int)
+            //-String ArrayList of all category keywords (values for both aliases and titles)
+            //constructor - parameter is a JSON object that represents a yelp business,
+            //-parse the object to populate the above variables
+            //toString() - nicely formatted string of all variables
+            //iterate through up to 20 search results, make objects of each result stored in an ArrayList,
+            // and print each object
 
         }
         catch(Exception e) {
